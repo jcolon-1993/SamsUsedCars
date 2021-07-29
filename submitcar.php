@@ -35,7 +35,7 @@
       echo ($query."<br>");
 
       // Makes a connection to the mySQL database
-      $mysqli = new mysqli('localhost', 'root', '%0ArSs7UI4#I8op%', 'cars');
+      $mysqli = new mysqli('localhost', 'root', 'Secret', 'cars');
       // Test to see if connection work.
       if (mysqli_connect_errno())
       {

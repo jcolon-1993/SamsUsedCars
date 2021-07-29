@@ -1,5 +1,5 @@
  <?php
-$mysqli = new mysqli('localhost', 'root', '%0ArSs7UI4#I8op%', 'Cars' );
+$mysqli = new mysqli('localhost', 'root', 'Secret', 'Cars' );
 /* check connection */
 if (mysqli_connect_errno()) {
     printf("Connect failed: %s\n", mysqli_connect_error());

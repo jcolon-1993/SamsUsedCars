@@ -5,7 +5,7 @@
   </head>
   <body>
     <h1>Sam's Used Cars</h1>
-
+    <!-- Forms used to get data from database using the post method -->
     <form action="submitcar.php" method="POST">
       VIN:<input name="VIN" type="text"/><br/>
       <br/>

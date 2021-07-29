@@ -10,9 +10,12 @@
 
     <?php
       include 'db.php';
+      // Used for testing purposed
+      error_reporting(0);
 
       // Create $vin variable and assign it to the value that url string
       $vin = $_GET['VIN'];
+      // Varible used if user wanted to update VIN
       $vinEdit = $_POST['VINEdit'];
       $price = $_POST['Asking_Price'];
       $color = $_POST['EXT_COLOR'];
@@ -40,9 +43,9 @@
         echo "Sorry, a vehicle with VIN of $vin cannot be found";
         mysqli_error($mysqli)."br";
       }
-
+      // Used to show the options for the currently selected car
       echo "Current Car";
-
+      // Make table to present data for current car
       echo "<table id='Grid' style='width: 80%'><tr>";
       // Creates the first row of the table
       echo "<th style='width: 50px'>VIN</th>";
@@ -76,10 +79,10 @@
         echo "<td>".$result_ar['Mileage']."</td>";
         // Closing tag for row
         echo "</td></tr>\n";
-        echo "/table";
+        // Used to get data from image column to store image
+        $image = $result_ar['Primary_Image'];
       }
-
-
+      // Create query string to update inventory database
       $query = "UPDATE inventory
       SET YEAR ='$year',
       Make ='$make',
@@ -103,10 +106,13 @@
         echo "Sorry, a vehicle with VIN of $vin cannot be found";
         mysqli_error($mysqli)."br";
       }
+      echo "</table>";
+      // used to display car images
+      echo "<IMG src='Images/$image'>";
 
       $mysqli->close();
     ?>
-
+    <!-- Form used to update car values -->
     <form action="viewcar.php" method="POST">
       <br/><br/>
       VIN:<input name="VINEdit" type="text"/><br/>
